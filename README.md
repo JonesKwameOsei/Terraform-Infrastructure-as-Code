@@ -43,7 +43,7 @@ and
 ```
 terrafoem apply
 ```
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/2ebb11d4-526a-4d09-9482-912bd991e2c9)<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/fb717746-378d-4fef-9b7d-97ec6b3b2f68)<p>
 Our **VPC** has been created successfully. Now Let's see the terraform state and  state-backup in our resource files:
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4f1bc728-537b-4cf9-b9ce-f09f831f4a65)
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/3d23c998-0880-47f8-92f8-5c2eba4da56f)<p>
