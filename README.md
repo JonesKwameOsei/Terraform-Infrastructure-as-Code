@@ -78,6 +78,11 @@ Lets refresh the VPC panel on AWS to confirm if our **custom VPC** has been dele
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4938792c-1a7d-482d-9382-486f1d2e1bed)<p>
 Successfully, **Terraform** has teared down the vpc. 
 
+Since we will be needing this VPC to build other infrastructures, we will create the vpc again by running the **apply** command:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/def4870f-d5fc-4a01-a932-0a2b354f6822)<p>
+Command executed without error. We will confirm from the VPC pane in the AWS management console.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/da4815d9-ed3a-46f5-9441-791589bcd7a4)<p>
+Our custom vpc, **dev-vpc**, has been created as shown above with the VPC-ID, **vpc-0b0e2732a0982c0bb**. Clearly, this is a newly created VPC as compared to the first one we deleted which had the vpc-ID, vpc-04552a2b38121e57**. 
 
 
 
