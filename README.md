@@ -98,7 +98,7 @@ resource "aws_subnet" "mtc-subnet" {
   }
 }
 ```
-Next, we will run the plan command to oreview our infrastructure.<>
+Next, we will run the plan command to oreview our infrastructure.<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/5d66d554-07db-4c08-8729-da9ec82d72db)<p>
 
 
