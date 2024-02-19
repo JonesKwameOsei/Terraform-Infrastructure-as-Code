@@ -212,6 +212,102 @@ From the key pair page in the AWS Management console, the resource **mtckey** ha
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/264ec79f-216b-4d61-b927-6a714b398356)<p>
 
 ## Provisioning EC2 Instance
+We will provision the EC2 instance with the following ci=onfiguration:
+```
+resource "aws_instance" "Dev_node" {
+  instance_type = "t2.micro"
+  ami = data.aws_ami.webserver_image.id
+  key_name = aws_key_pair.mtc_auth.id
+  vpc_security_group_ids = ["aws_security_group.mtc_id"]
+  subnet_id = aws_subnet.mtc-subnet.id
+
+  root_block_device {
+    volume_size =  10
+  }
+
+  tags = {
+    Name = "dev.node"
+  }
+}
+```
+For our EC2 and all the the other resources, we will employ **userdata** boostrap and install a docker engine or our development. 
+**userdata**:<p>
+``#!/bin/bash
+
+# Update package lists and install prerequisites
+sudo apt-get update -y && \
+sudo apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common && \
+
+# Adding Docker's official GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
+
+# Adding Docker repository
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+
+# Update package lists again
+sudo apt-get update -y && \
+
+# Installing Docker packages
+sudo apt-get install -y \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io && \
+
+# Adding current user to the docker group
+sudo usermod -aG docker "$(whoami)"
+```
+finally, our insatnce will programmatically looks like this:
+```
+resource "aws_instance" "Dev_node" {
+  instance_type = "t2.micro"
+  ami = data.aws_ami.webserver_image.id
+  key_name = aws_key_pair.mtc_auth.id
+  vpc_security_group_ids = ["aws_security_group.mtc_id"]
+  subnet_id = aws_subnet.mtc-subnet.id
+  user_data = file("userdata.tpl")
+
+  root_block_device {
+    volume_size =  10
+  }
+
+  tags = {
+    Name = "dev.node"
+  } 
+}
+```
+Let's provision our instnace with:
+```
+terraform plan
+
+tearraform apply
+```
+
+Our instance has been provisioned with all the predifined resources as below:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/667227c2-b144-4141-b554-018a3ad80371)<p>
+
+Now, let's try to SSH into our instance. As explained earlier, we can get all the information of our infrastructure by runing:
+```
+terraform show
+```
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/ec871474-99c4-4b00-b4bc-ceea1560a166)
+
+Succesffuly ssh into the instance:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/7236daa0-df2b-4421-9a10-b67f5ad98a07)<p>
+
+Let's confirm if a docker contanier was also installed:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/78dc5a92-90e1-4a09-a0f7-705ea5d18076)
+The conatainer was successfully installed. 
+
+
+
+
+
+
 
 
 
