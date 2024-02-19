@@ -211,6 +211,7 @@ resource "aws_key_pair" "mtc_auth" {
 From the key pair page in the AWS Management console, the resource **mtckey** has been created:<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/264ec79f-216b-4d61-b927-6a714b398356)<p>
 
+## Provisioning EC2 Instance
 
 
 
