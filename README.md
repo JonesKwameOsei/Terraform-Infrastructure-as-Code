@@ -142,8 +142,21 @@ This time, we will have two resources to be provision:<p>
 This time let's confirm from the resources in the **AWS Explorer** pane in VScode to confirm whether the route table has been successfully been created.<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/888ae217-9aee-404b-9b4f-89b5553b60de)
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/3e15e1cb-0d29-4505-9276-11baf6e403c9)<p>
-From the AWS Explorer pane in VScode, it can be observed that all the resources created are **Resources** group under **Europe (London)** the default AZ, eu-west-2, to deploy the infrastcure we are building. Nonetheless, let's confirm from the the AWS Management Console.<p>
+From the AWS Explorer pane in VScode, it can be observed that all the resources created are found under **Resources** group under **Europe (London)** the default AZ, eu-west-2, where we deploy the infrastcure we are building. Nonetheless, let's confirm from the the AWS Management Console.<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/40ad7d82-b23d-4015-9fa7-604aab025d65)<p>
+
+### Providing Route Table Association
+By providing a route table association, we aim at linking the subnet to the route table. The following code creates an association between the subnet and route table. 
+```
+resource "aws_route_table_association" "a" {
+  subnet_id      = aws_subnet.mtc-subnet.id
+  route_table_id = aws_route_table.mtc_public_rtb.id
+}
+```
+
+In the route table page, we will select the **Subnet associations** tab and view the **route table association** we just created.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/d5d8168b-86d2-42f5-ad37-5f085e78a55f)
+
 
 
 
