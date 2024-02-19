@@ -230,9 +230,10 @@ resource "aws_instance" "Dev_node" {
   }
 }
 ```
-For our EC2 and all the the other resources, we will employ **userdata** boostrap and install a docker engine or our development. 
-**userdata**:<p>
-``#!/bin/bash
+For our EC2 and all the the other resources, we will employ **userdata** to boostrap and install a docker engine for our development. 
+**userdata**:
+```
+#!/bin/bash
 
 # Update package lists and install prerequisites
 sudo apt-get update -y && \
@@ -243,22 +244,22 @@ sudo apt-get install -y \
     gnupg-agent \
     software-properties-common && \
 
-# Adding Docker's official GPG key
+-- Adding Docker's official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
 
-# Adding Docker repository
+-- Adding Docker repository
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
 
-# Update package lists again
+-- Update package lists again
 sudo apt-get update -y && \
 
-# Installing Docker packages
+-- Installing Docker packages
 sudo apt-get install -y \
     docker-ce \
     docker-ce-cli \
     containerd.io && \
 
-# Adding current user to the docker group
+-- Adding current user to the docker group
 sudo usermod -aG docker "$(whoami)"
 ```
 finally, our insatnce will programmatically looks like this:
