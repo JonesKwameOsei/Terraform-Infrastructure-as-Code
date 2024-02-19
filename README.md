@@ -91,15 +91,22 @@ resource "aws_subnet" "mtc-subnet" {
     vpc_id = aws_vpc.mtc-vpc.id
     cidr_block = "10.0.1.0/24"
     map_public_ip_on_launch = true
-    availability_zone = "us-east-1a"
+    availability_zone = "eu-west-2a"
 
     tags = {
     Name = "dev-public"
   }
 }
 ```
-Next, we will run the plan command to oreview our infrastructure.<p>
+Next, we will run the plan command to review our infrastructure, then apply the configurations to create the **public subnet** in *AZ eu-west-2*.<p>
+
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/5d66d554-07db-4c08-8729-da9ec82d72db)<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/a7613aa6-1978-4fd6-b59c-6d9c159a3ab1)<p>
+Having ran the **terraform apply** command, we have created a public subnet, **dev-public**, with the cidr_block *10.0.1.0/24* in a speicified region, *eu-west-2a* as seen below:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/e44bb65f-09a4-4c52-9b84-72d3d83fcf7f)<p>
+
+
+
 
 
 
