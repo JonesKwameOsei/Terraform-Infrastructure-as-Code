@@ -82,7 +82,7 @@ Since we will be needing this VPC to build other infrastructures, we will create
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/def4870f-d5fc-4a01-a932-0a2b354f6822)<p>
 Command executed without error. We will confirm from the VPC pane in the AWS management console.<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/da4815d9-ed3a-46f5-9441-791589bcd7a4)<p>
-Our custom vpc, **dev-vpc**, has been created as shown above with the VPC-ID, **vpc-0b0e2732a0982c0bb**. Clearly, this is a newly created VPC as compared to the first one we deleted which had the vpc-ID, vpc-04552a2b38121e57**. This is the *power** of terraform, infrastructure comes and go as needed.  
+Our custom vpc, **dev-vpc**, has been created as shown above with the VPC-ID, **vpc-0b0e2732a0982c0bb**. Clearly, this is a newly created VPC as compared to the first one we deleted which had the vpc-ID, **vpc-04552a2b38121e57**. This is the **power** of terraform, infrastructure comes and go as needed.  
 
 ## Deploying a Subnet and Referencing Other Resources
 Next, we will deploy a subnet to which we will bdeploy our Elastic Compute Cloud (EC2). Let's add another resource:
