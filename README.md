@@ -301,8 +301,59 @@ Succesffuly ssh into the instance:<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/7236daa0-df2b-4421-9a10-b67f5ad98a07)<p>
 
 Let's confirm if a docker contanier was also installed:<p>
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/78dc5a92-90e1-4a09-a0f7-705ea5d18076)
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/78dc5a92-90e1-4a09-a0f7-705ea5d18076)<p>
 The conatainer was successfully installed. 
+
+## Setting Configuration Files to Connect VScode to EC2 Instance
+We can configure files to connect to our instance from VScode. Conventionally, we would just use the **public IP address from our insyance with the key pair downloaded when creating an instance to do the ssh connecting. Here, the aim to to ssh our instance with a **Remote SSH** from VScode. First, we will create a **template files**. 
+
+In VScode, we will create new files (in the directory with the main.tf) and add the configuration. 
+
+Based on the operating system, **Windows** users can do the following configuration (windows-ssh-config.tpl):
+```
+add-content -path C:/Users/KWAME/.ssh/config
+
+Host ${hostname}
+    Hostname ${hostname}
+    User ${user}
+    Identifyfile $(Identifyfile)
+```
+
+The following configuretion is best for Unix/Linux systems (linux-ssh-config.tpl):
+```
+cat << EOF >> ~/.ssh/config
+
+Host ${hostname}
+    Hostname ${hostname}
+    User ${user}
+    Identifyfile $(Identifyfile)
+EOF
+``` 
+
+Next, we will utilise a provisioner to do the configuration on our local terminal to enable SSH into EC2 instance.<p>
+**Note**: Terraform state will not manage or record a provisioner's success or failure unlike other resources. Terraform stresses from the provisioner documentation that it should be the last results. In view of this, a provisioner should not be sonething developers should use for every deploment. Check the [documentation](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax) for more.<p>
+
+We will embed the provisioner utility into our instance and replace or reploy it. 
+```
+provisioner "local-exec" {
+    command = templatefile("linux-ssh-config.tpl", {
+      hostname = self.public_ip,
+      user = "ubuntu",
+      identityfy = "~/.ssh.mtckey"
+    })
+    interpreter = ["bash", "-c"]
+  }
+```
+Terraform does not automatically identify the provisioner utility by running **terraform plan**. To effect the 
+the chnages, we will run terraform apply --replace <name of the instance>:
+```
+terraform apply -replace aws_instance.Dev_Node
+```
+This has alert terraform of the new changes:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/7e33dcdd-2ff1-4fd5-9698-3840af960902)<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4a09a421-65e3-4df8-905d-b827376a6052)
+
+
 
 
 
