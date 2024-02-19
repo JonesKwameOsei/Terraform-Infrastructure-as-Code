@@ -44,7 +44,7 @@ and
 terrafoem apply
 ```
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/fb717746-378d-4fef-9b7d-97ec6b3b2f68)<p>
-Our **VPC** has been created successfully. Now Let's see the terraform state and  state-backup in our resource files:
+Our **VPC** has been created successfully. Now Let's see the terraform state and  state-backup in our resource files:<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4f1bc728-537b-4cf9-b9ce-f09f831f4a65)
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/3d23c998-0880-47f8-92f8-5c2eba4da56f)<p>
 
@@ -141,7 +141,10 @@ This time, we will have two resources to be provision:<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/ace5cd06-e4aa-41b2-a447-7ab921798fda)<p>
 This time let's confirm from the resources in the **AWS Explorer** pane in VScode to confirm whether the route table has been successfully been created.<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/888ae217-9aee-404b-9b4f-89b5553b60de)
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4cebba0d-2283-44b1-b9b5-328fb7de6af2)
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4cebba0d-2283-44b1-b9b5-328fb7de6af2)<p>
+From the AWS Explorer pane in VScode, it can be observed that all the resources created are **Resources** group under **Europe (London)** the default AZ, eu-west-2, to deploy the infrastcure we are building. Nonetheless, let's confirm from the the AWS Management Console.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/40ad7d82-b23d-4015-9fa7-604aab025d65)<p>
+
 
 
 
