@@ -182,6 +182,20 @@ resource "aws_security_group" "mtc_sg" {
 The coode above created the scueirty groups successfully:<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/0879725f-8e52-4bb1-8c03-06f2c42695c5)
 
+## Configuring AMI Datasource
+Before we will provision the EC2 instance, we will provide and AMI from which we want deploy. We will do this by utilising **data source**. Data source enables us to query an information from external system or an existing resorces that is added to the configuration in terraform. From then **Amazon Machine Images (AMIs), we will extract the **AMI name** and **owner** details into our datasource code as below:
+```
+data "aws_ami" "webserver-image" {
+    most_recent = true
+    owners = ["099720109477"]
+
+    filter {
+      name = "name"
+      values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-arm64-server-*"]
+    }
+```
+From the datasource code, the onwer is **099720109477** whiles the AMI name is **ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-arm64-server-*.** the * after the **server-** is the release date for the AMI but since we want to get the updated version, we used a wild card instead of an actual date.  When we check the **terraform.tfstate** file, we can observe that the defined instace AMI has been populated but with a different AMI and Owner's details. This is the cases because we set the most recent to true and used the wild card for an updated version of the AMI.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/fdc54c15-e74d-4d2a-b9c3-7290a51d26e9)
 
 
 
