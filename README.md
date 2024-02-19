@@ -305,7 +305,7 @@ Let's confirm if a docker contanier was also installed:<p>
 The conatainer was successfully installed. 
 
 ## Setting Configuration Files to Connect VScode to EC2 Instance
-We can configure files to connect to our instance from VScode. Conventionally, we would just use the **public IP address from our insyance with the key pair downloaded when creating an instance to do the ssh connecting. Here, the aim to to ssh our instance with a **Remote SSH** from VScode. First, we will create a **template files**. 
+We can configure files to connect to our instance from VScode. Conventionally, we would just use the **public IP address** from our insyance with the key pair downloaded when creating an instance to do the ssh connecting. Here, the aim to to ssh our instance with a **Remote SSH** from VScode. First, we will create a **template files**. 
 
 In VScode, we will create new files (in the directory with the main.tf) and add the configuration. 
 
@@ -316,7 +316,7 @@ add-content -path C:/Users/KWAME/.ssh/config
 Host ${hostname}
     Hostname ${hostname}
     User ${user}
-    Identifyfile $(Identifyfile)
+    Identifyfile ${Identifyfile}
 ```
 
 The following configuretion is best for Unix/Linux systems (linux-ssh-config.tpl):
@@ -326,7 +326,7 @@ cat << EOF >> ~/.ssh/config
 Host ${hostname}
     Hostname ${hostname}
     User ${user}
-    Identifyfile $(Identifyfile)
+    Identifyfile ${Identifyfile}
 EOF
 ``` 
 
@@ -351,7 +351,12 @@ terraform apply -replace aws_instance.Dev_Node
 ```
 This has alert terraform of the new changes:<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/7e33dcdd-2ff1-4fd5-9698-3840af960902)<p>
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4a09a421-65e3-4df8-905d-b827376a6052)
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4a09a421-65e3-4df8-905d-b827376a6052)<p>
+
+Terraform has successfully destroyed the instance deployed earlier and has replcaed it with a new instance:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4f01a128-c387-491e-8880-b4d075c49e7e)<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/f8a71f5f-c9eb-4732-bee4-99b2fc79a0a9)
+
 
 
 
