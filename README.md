@@ -195,7 +195,22 @@ data "aws_ami" "webserver-image" {
     }
 ```
 From the datasource code, the onwer is **099720109477** whiles the AMI name is **ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-arm64-server-*.** the * after the **server-** is the release date for the AMI but since we want to get the updated version, we used a wild card instead of an actual date.  When we check the **terraform.tfstate** file, we can observe that the defined instace AMI has been populated but with a different AMI and Owner's details. This is the cases because we set the most recent to true and used the wild card for an updated version of the AMI.<p>
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/fdc54c15-e74d-4d2a-b9c3-7290a51d26e9)
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/fdc54c15-e74d-4d2a-b9c3-7290a51d26e9)<p>
+
+### Create Key Pair
+Next, we will create a key pair then create a terraform resources that uses the keay pair.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/264a3b73-dd4c-477b-9a0b-359e9edefa65)<p>
+
+We will now proceed to create the key pair with terraform:<p>
+```
+resource "aws_key_pair" "mtc_auth" {
+  key_name = "mtckey"
+  public_key = file("~/.ssh/mtckey.pub")
+}
+```
+From the key pair page in the AWS Management console, the resource **mtckey** has been created:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/264ec79f-216b-4d61-b927-6a714b398356)<p>
+
 
 
 
