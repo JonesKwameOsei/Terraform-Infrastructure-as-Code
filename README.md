@@ -105,7 +105,23 @@ Next, we will run the plan command to review our infrastructure, then apply the 
 Having ran the **terraform apply** command, we have created a public subnet, **dev-public**, with the cidr_block *10.0.1.0/24* in a speicified region, *eu-west-2a* as seen below:<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/e44bb65f-09a4-4c52-9b84-72d3d83fcf7f)<p>
 
+## Create Internet Gateway
+Next, we will give our resources a way to the internet by building an **Internet Gataeway** with the terraform. The internet gateway is a VPC component, that allows communication between vpc and the internet. It supports both IPV4 and IPv6 traffic, hence, it enables resources such as EC2 in the public subnet to connect the internet and vice versa. To provision the gateway, let's run:
+```
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.mtc-vpc.id
 
+  tags = {
+    Name = "dev-igw"
+  }
+}
+```
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/5c3a0249-f520-4371-8657-8d1ca3cdacb9)
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/0ec25170-c3be-4995-8900-240222688c12)
+
+
+## Create a Route Table
+In this task, we will provision a **route table** to route traffic from the subnet to the internet gateway. 
 
 
 
