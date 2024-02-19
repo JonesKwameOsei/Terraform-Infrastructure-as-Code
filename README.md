@@ -157,6 +157,31 @@ resource "aws_route_table_association" "a" {
 In the route table page, we will select the **Subnet associations** tab and view the **route table association** we just created.<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/d5d8168b-86d2-42f5-ad37-5f085e78a55f)
 
+## Create Security Groups
+Next, we will create a security group and allow outboun and inbound rules. 
+```
+resource "aws_security_group" "mtc_sg" {
+  name        = "dev-sg"
+  vpc_id      = aws_vpc.mtc-vpc.id
+
+  ingress {
+    from_port   = 0
+    to_port     = 0 // we set this port to the maximum port number if you want to allow all ports
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0 // we set this port to the maximum port number if you want to allow all ports
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+```
+The coode above created the scueirty groups successfully:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/0879725f-8e52-4bb1-8c03-06f2c42695c5)
+
 
 
 
