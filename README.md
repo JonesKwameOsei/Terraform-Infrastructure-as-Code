@@ -116,12 +116,32 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 ```
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/5c3a0249-f520-4371-8657-8d1ca3cdacb9)
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/0ec25170-c3be-4995-8900-240222688c12)
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/5c3a0249-f520-4371-8657-8d1ca3cdacb9)<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/0ec25170-c3be-4995-8900-240222688c12)<p>
 
+Terraform has successfully mounted the Internet Gateway. Now, we will create a connection between the **IGW** and the **subnet**.
 
 ## Create a Route Table
-In this task, we will provision a **route table** to route traffic from the subnet to the internet gateway. 
+In this task, we will provision a **route table** to route traffic from the subnet to the internet gateway by running this terraform code:
+```
+resource "aws_route_table" "mtc_public_rtb" {
+  vpc_id = aws_vpc.mtc-vpc.id 
+  tags = {
+    Name = "dev_public_rtb"
+  }
+}
+
+resource "aws_route" "default_route" {
+  route_table_id = aws_route_table.mtc_public_rtb.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id = aws_internet_gateway.igw.id
+}
+```
+This time, we will have two resources to be provision:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/ace5cd06-e4aa-41b2-a447-7ab921798fda)<p>
+This time let's confirm from the resources in the **AWS Explorer** pane in VScode to confirm whether the route table has been successfully been created.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/888ae217-9aee-404b-9b4f-89b5553b60de)
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4cebba0d-2283-44b1-b9b5-328fb7de6af2)
 
 
 
