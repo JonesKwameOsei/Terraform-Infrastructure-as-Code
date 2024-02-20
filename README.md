@@ -384,7 +384,7 @@ Now that all dependencies are set for us, let us SSH to our instance directly fr
 4. A new VScode window opens. Select **Linux**. This is because it is a linux host and your operationg system doesnt matter even if it is **Windows**.<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/3932085f-46a1-4d00-b946-9d24d2e4d224)
 
-5. 
+
 
 
 
