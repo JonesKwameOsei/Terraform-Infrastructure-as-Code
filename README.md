@@ -355,8 +355,36 @@ This has alert terraform of the new changes:<p>
 
 Terraform has successfully destroyed the instance deployed earlier and has replcaed it with a new instance:<p>
 ![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/4f01a128-c387-491e-8880-b4d075c49e7e)<p>
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/f8a71f5f-c9eb-4732-bee4-99b2fc79a0a9)
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/f8a71f5f-c9eb-4732-bee4-99b2fc79a0a9)<p>
 
+Evidently, the newly provisioned instance has **Public IP Address** **18.171.241.140** as compared to the earlier one we used to SSH with the IP address **18.135.15.162**. This demonstrates that **Terraform** has replaced our resouces.<p>
+
+Now, we will investigate whether our SSH config file was also provisioned together with the resources. Run the command below to see the config file (this project utilised the linux config file - with Windows but Gitbash in VScode works well as linux ecosystem):
+```
+cat ~/.ssh/config
+```
+The results return is below:<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/e191f4b7-3d75-4383-825a-c0dd047109e6)
+```
+Host 18.171.241.140
+    Hostname 18.171.241.140
+    User ubuntu
+    Identifyfile ~/.ssh.mtckey
+```
+From the results, we can observe that the provisioner did exactly what we asked for. It added the IP address **18.171.241.140**, the **hostname**, user as **ubuntu** and our identifyfiler as **~/.ssh/config**. 
+
+### Direct SSH Connection on VScode
+Now that all dependencies are set for us, let us SSH to our instance directly from VScode.
+1. In VScode, on the **View** tab, select **command palette**.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/92cbc840-ebd6-4b1e-872e-74ab2c04c24a)<p>
+2. in the command palette, search for **SSH**. Then select the option, **Remote-SSH: Connect to Host**.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/f9af2a1a-e4d0-44d1-9679-e9c2f0f9f24c)<p>
+3. Click on the IP address of the instance.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/beacc200-ebe8-482f-ab37-bb23b06aa0b4)
+4. A new VScode window opens. Select **Linux**. This is because it is a linux host and your operationg system doesnt matter even if it is **Windows**.<p>
+![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/3932085f-46a1-4d00-b946-9d24d2e4d224)
+
+6. 
 
 
 
