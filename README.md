@@ -1,5 +1,27 @@
-# Terraform
-## Deploying infrastructure with Terraform
+# Deploying infrastructure with Terraform
+In our privious [project](https://github.com/JonesKwameOsei/AWSCloud), we demonstrated how infrastrature can be built with scripts on the **command line interface**. In this project, we will utilise **infrastructure as a code (IaC)** to build and deploy infrastructure in the cloud.  Infrastructure as Code (IaC) is a modern approach to managing and provisioning infrastructure through code, rather than manually configuring and maintaining it. IaC treats infrastructure as software, enabling automation, consistency, and version control.
+
+IaC involves defining the infrastructure components, such as servers, networks, and storage, in machine-readable files. These files contain the configuration and deployment instructions for the infrastructure. IaC tools then use these files to automate the provisioning, configuration, and management of the infrastructure.
+
+IaC offers several benefits, including:
+
+1. **Automation**: IaC automates infrastructure provisioning and management tasks, reducing manual effort and human errors.
+
+2. **Consistency**: IaC ensures consistent infrastructure configurations across different environments, promoting standardisation and reducing configuration drift.
+
+3. **Version Control**: IaC allows for version control of infrastructure configurations, enabling easy tracking of changes and facilitating rollbacks if necessary.
+
+4. **Documentation**: IaC serves as documentation for the infrastructure, providing a clear and concise representation of the infrastructure components and their configurations.
+
+5. **Scalability**: IaC simplifies scaling up or down infrastructure resources as needed, enabling rapid provisioning and de-provisioning.
+
+6. **Security**: IaC can enforce security policies and compliance requirements by automating security configurations and monitoring.
+
+7. **Collaboration**: IaC enables collaboration among teams by providing a shared understanding of the infrastructure and its configurations.
+
+8. **Cost Management**: Automated Shutdown is one powerful characteristics of IaC. IAC scripts can include automation for shutting down non-essential resources outside of business hours. This helps in reducing costs by only running resources when needed. Again, it has the ability to shut down all resources 
+
+IaC is widely adopted in cloud computing, where it allows for the rapid provisioning and management of cloud resources. It is also gaining traction in on-premises environments as organizations seek to automate and streamline their infrastructure management processes.
 ## Create a new user in IAM 
 ### Create Access Keys 
 ## Creating Connection in VScode with IAM Credentials 
