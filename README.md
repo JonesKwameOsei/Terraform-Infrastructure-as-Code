@@ -28,7 +28,7 @@ There are many Infrastructure as Code tools but the some of the most popular one
 - Google Cloud Deployment Manager
 - Azure Resource Manager (ARM) Templates
 
-In this project, we will employ **Terraform** to build our resources in the cloud.  Terraform is **an open-source IaC tool developed by HashiCorp**. It allows the definition and provision infrastructure using a declarative configuration language. Terraform supports multiple cloud providers and helps in managing infrastructure as code efficiently.
+In this project, we will employ **Terraform** to build our resources in the cloud.  Terraform is **an open-source IaC tool developed by HashiCorp**. It allows the definition and provision of infrastructure using a declarative configuration language. Terraform supports multiple cloud providers and helps in managing infrastructure as code efficiently.
 
 ## Set Up
 - Create a new user in IAM 
