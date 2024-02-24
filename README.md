@@ -19,7 +19,7 @@ IaC offers several benefits, including:
 
 7. **Collaboration**: IaC enables collaboration among teams by providing a shared understanding of the infrastructure and its configurations.
 
-8. **Cost Management**: Automated Shutdown is one powerful characteristics of IaC. IAC scripts can include automation for shutting down non-essential resources outside of business hours. This helps in reducing costs by only running resources when needed. Again, it has the ability to shut down all resources when they are not needed anymore ensuring all are shut down wihout leaving any running. This removes the human error to leave an unwanted resource running to incur cost.  
+8. **Cost Management**: Automated Shutdown is one powerful characteristics of IaC. IaC scripts can include automation for shutting down non-essential resources outside of business hours. This helps in reducing costs by only running resources when needed. Again, it has the ability to shut down all resources when they are not needed anymore ensuring all are shut down wihout leaving any running. This removes the human error to leave an unwanted resource running to incur cost.  
 
 There are many Infrastructure as Code tools but the some of the most popular ones are:<p>
 - Terraform
