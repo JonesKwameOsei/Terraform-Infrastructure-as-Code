@@ -410,9 +410,9 @@ From the results, we can observe that the provisioner did exactly what we asked 
 In this project, we successfully provisioned resources with an Infrastructure as Code, terraform, to be specific in the AWS Cloud. We defined our resources with IaC codes and terraform provisioned all the resources for us. This is not the only Capability of Terraform, we could explore more and even provision resource locally. 
 
 ## Acknowledgement
-I would like to express my gratitude to my mentor, **Jay Kwashe**, whose inspiration guided me through the successful completion of my Terraform project. Thank you for your invaluable support and guidance.
+I would like to express my gratitude to my mentor, **Jay Kwashe**, **a senior software developer and co-founder of JOMACS IT Solutions and Services**. His inspiration guided me through the successful completion of my Terraform project. Thank you for your invaluable support and guidance.
 
-
+**N/B:** For errors and contributions, contact [oseikwamejones@gmail.com]("Oseikwamejones@gmail.com")
 
 
 
