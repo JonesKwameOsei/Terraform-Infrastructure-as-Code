@@ -1,4 +1,4 @@
-# Deploying infrastructure with Terraform
+# Deploying AWS Resources with Infrastructure as Code (IaC)
 In our privious [project](https://github.com/JonesKwameOsei/AWSCloud), we demonstrated how infrastrature can be built with scripts on the **command line interface**. In this project, we will utilise **infrastructure as a code (IaC)** to build and deploy infrastructure in the cloud.  Infrastructure as Code (IaC) is a modern approach to managing and provisioning infrastructure through code, rather than manually configuring and maintaining it. IaC treats infrastructure as software, enabling automation, consistency, and version control.
 
 IaC involves defining the infrastructure components, such as servers, networks, and storage, in machine-readable files. These files contain the configuration and deployment instructions for the infrastructure. IaC tools then use these files to automate the provisioning, configuration, and management of the infrastructure.
