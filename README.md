@@ -28,7 +28,7 @@ There are many Infrastructure as Code tools but the some of the most popular one
 - Google Cloud Deployment Manager
 - Azure Resource Manager (ARM) Templates
 
-In this project, we will employ **Terraform** to build our resources in the cloud.  Terraform is **an open-source IaC tool developed by HashiCorp**. It allows the definition and provision of infrastructure using a declarative configuration language. Terraform supports multiple cloud providers and helps in managing infrastructure as code efficiently.
+In this project, we will employ **Terraform** to build our resources in the cloud.  Terraform is **an open-source IaC tool allows the definition and provision of infrastructure using a declarative configuration language**. Terraform supports multiple cloud providers and helps in managing infrastructure as code efficiently.
 
 ## Set Up
 - Create a new user in IAM 
@@ -406,16 +406,11 @@ Host 18.171.241.140
 ```
 From the results, we can observe that the provisioner did exactly what we asked for. It added the IP address **18.171.241.140**, the **hostname**, user as **ubuntu** and our identifyfiler as **~/.ssh/config**. 
 
-### Direct SSH Connection on VScode
-Now that all dependencies are set for us, let us SSH to our instance directly from VScode.
-1. In VScode, on the **View** tab, select **command palette**.<p>
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/92cbc840-ebd6-4b1e-872e-74ab2c04c24a)<p>
-2. in the command palette, search for **SSH**. Then select the option, **Remote-SSH: Connect to Host**.<p>
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/f9af2a1a-e4d0-44d1-9679-e9c2f0f9f24c)<p>
-3. Click on the IP address of the instance.<p>
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/beacc200-ebe8-482f-ab37-bb23b06aa0b4)
-4. A new VScode window opens. Select **Linux**. This is because it is a linux host and your operationg system doesnt matter even if it is **Windows**.<p>
-![image](https://github.com/JonesKwameOsei/Terraform/assets/81886509/3932085f-46a1-4d00-b946-9d24d2e4d224)
+## Conclusion
+In this project, we successfully provisioned resources with an Infrastructure as Code, terraform, to be specific in the AWS Cloud. We defined our resources with IaC codes and terraform provisioned all the resources for us. This is not the only Capability of Terraform, we could explore more and even provision resource locally. 
+
+## Acknowledgement
+I would like to express my gratitude to my mentor, **Jay Kwashe**, whose inspiration guided me through the successful completion of my Terraform project. Thank you for your invaluable support and guidance.
 
 
 
