@@ -197,16 +197,17 @@ resource "aws_security_group" "mtc_sg" {
   name        = "dev-sg"
   vpc_id      = aws_vpc.mtc-vpc.id
 
+// we will set both ports to the minimum port number to allow all ports
   ingress {
     from_port   = 0
-    to_port     = 0 // we set this port to the maximum port number if you want to allow all ports
+    to_port     = 0 
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
     from_port   = 0
-    to_port     = 0 // we set this port to the maximum port number if you want to allow all ports
+    to_port     = 0 
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
